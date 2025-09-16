@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>QA Daily Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>
+    📋 QA Challenger
+    </h1>
+
+    <div id="instructions">
+        <p>Select one or more categories below to get quiz questions. 
+        You can change your selection anytime.</p>
+    </div>
+
+    <div id="category-container">
+    <details open>
+        <summary>Automation Tools</summary>
+        <label><input type="checkbox" class="category-checkbox" value="Cypress" checked> Cypress</label>
+        <label><input type="checkbox" class="category-checkbox" value="Playwright"> Playwright</label>
+        <label><input type="checkbox" class="category-checkbox" value="Selenium"> Selenium</label>
+        <label><input type="checkbox" class="category-checkbox" value="TestNG"> TestNG</label>
+        <label><input type="checkbox" class="category-checkbox" value="Postman"> Postman</label>
+    </details>
+
+    <details>
+        <summary>Testing Types</summary>
+        <label><input type="checkbox" class="category-checkbox" value="Manual Testing"> Manual Testing</label>
+        <label><input type="checkbox" class="category-checkbox" value="Unit Testing"> Unit Testing</label>
+        <label><input type="checkbox" class="category-checkbox" value="Integration Testing"> Integration Testing</label>
+        <label><input type="checkbox" class="category-checkbox" value="Regression Testing"> Regression Testing</label>
+        <label><input type="checkbox" class="category-checkbox" value="Performance Testing"> Performance Testing</label>
+        <label><input type="checkbox" class="category-checkbox" value="Security Testing"> Security Testing</label>
+        <label><input type="checkbox" class="category-checkbox" value="API Testing"> API Testing</label>
+        <label><input type="checkbox" class="category-checkbox" value="Acceptance Testing"> Acceptance Testing</label>
+        <label><input type="checkbox" class="category-checkbox" value="Exploratory Testing"> Exploratory Testing</label>
+        <label><input type="checkbox" class="category-checkbox" value="Mobile Testing"> Mobile Testing</label>
+        <label><input type="checkbox" class="category-checkbox" value="Cross-Browser Testing"> Cross-Browser Testing</label>
+    </details>
+
+    <details>
+        <summary>Processes & Management</summary>
+        <label><input type="checkbox" class="category-checkbox" value="SDLC"> SDLC</label>
+        <label><input type="checkbox" class="category-checkbox" value="STLC"> STLC</label>
+        <label><input type="checkbox" class="category-checkbox" value="CI/CD"> CI/CD</label>
+        <label><input type="checkbox" class="category-checkbox" value="Test Planning"> Test Planning</label>
+        <label><input type="checkbox" class="category-checkbox" value="Test Case Design"> Test Case Design</label>
+        <label><input type="checkbox" class="category-checkbox" value="Defect Life Cycle"> Defect Life Cycle</label>
+        <label><input type="checkbox" class="category-checkbox" value="Agile Testing"> Agile Testing</label>
+        <label><input type="checkbox" class="category-checkbox" value="Continuous Testing"> Continuous Testing</label>
+        <label><input type="checkbox" class="category-checkbox" value="Version Control"> Version Control</label>
+        <label><input type="checkbox" class="category-checkbox" value="Bug Tracking"> Bug Tracking</label>
+        <label><input type="checkbox" class="category-checkbox" value="Quality Metrics"> Quality Metrics</label>
+    </details>
+</div>
+
+
+
+    <div id="quiz-container">
+    <div id="loading-spinner" class="hidden"></div>
+    <h2 id="question-text"></h2>
+    <button id="show-answer-btn">Show Answer</button>
+    <p id="answer-text" class="hidden"></p>
+    <button id="next-question-btn">Next Question</button>
+</div>
+
+<footer id="footer">
+    <p>The app was created by with ❤️
+       <a href="https://www.linkedin.com/in/petar-skrbic/" target="_blank">Petar Skrbic</a>
+    </p>
+</footer>
+
+    <script src="popup.js"></script>
+</body>
+</html>
