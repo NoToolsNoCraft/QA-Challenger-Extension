@@ -1,0 +1,39 @@
+// Replace with your actual Spreadsheet ID
+const SPREADSHEET_ID = '1LIzAojJ8BEILKphopyI7QD4BZFAv0lzge8lFZtWAvi8'; // Paste your Spreadsheet ID here
+
+// This function handles all GET requests to the web app URL.
+function doGet(e) {
+  const categoryName = e.parameter.category;
+  
+  if (!categoryName) {
+    return ContentService.createTextOutput("Error: Missing category parameter.").setMimeType(ContentService.MimeType.TEXT);
+  }
+
+  const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID); // Use ID instead of getActiveSpreadsheet
+  const sheet = spreadsheet.getSheetByName(categoryName);
+
+  if (!sheet) {
+    return ContentService.createTextOutput("Error: Category not found.").setMimeType(ContentService.MimeType.TEXT);
+  }
+
+  // Get all data from the sheet, skipping the header row (row 1).
+  const data = sheet.getRange(2, 1, sheet.getLastRow() - 1, 2).getValues();
+
+  // Map the data into an array of objects for easier use.
+  const questions = data.map(row => ({
+    question: row[0],
+    answer: row[1]
+  }));
+
+  // Return the data as a JSON string.
+  return ContentService.createTextOutput(JSON.stringify(questions)).setMimeType(ContentService.MimeType.JSON);
+}
+
+// This function can be used to get a list of all sheet names (categories)
+// if you wanted to dynamically populate checkboxes in the future.
+function getCategories() {
+  const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID); // Use ID here too
+  const sheets = spreadsheet.getSheets();
+  const categoryNames = sheets.map(sheet => sheet.getName());
+  return categoryNames;
+}
